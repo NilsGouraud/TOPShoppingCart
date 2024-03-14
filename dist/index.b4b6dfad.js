@@ -34213,7 +34213,7 @@ function Home() {
             className: "nilePhoto home",
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "presentation " + (style && " sober"),
-                children: "Go with the stream and sail across stylish clothing and high end computer hardware !"
+                children: style ? "High quality, low prices, and no questions asked." : " Go with the stream and sail across stylish clothing and high end computer hardware !"
             }, void 0, false, {
                 fileName: "src/components/Home.jsx",
                 lineNumber: 9,

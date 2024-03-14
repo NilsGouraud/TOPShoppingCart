@@ -7,8 +7,9 @@ function Home() {
     <>
       <main className="nilePhoto home">
         <div className={"presentation " + (style && " sober")}>
-          Go with the stream and sail across stylish clothing and high end
-          computer hardware !
+          {style
+            ? "High quality, low prices, and no questions asked."
+            : " Go with the stream and sail across stylish clothing and high end computer hardware !"}
         </div>
       </main>
     </>
