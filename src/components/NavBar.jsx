@@ -44,32 +44,40 @@ function NavBar(props) {
             <div className="switch"></div>
           </label>
         </button>
-        <Link to={"./shop"}>
-          <div className={(style && "sober ") + " navEl"}>
-            <button
-              className={
-                (style && "sober ") + (selected === "shop" && " selected")
-              }
-              id="shop"
-              onClick={function () {
-                setSelected("shop");
-              }}
-            >
-              Shop
-            </button>
-            <button
-              id="cart"
-              className={
-                (style && "sober ") + (selected === "cart" && " selected")
-              }
-              onClick={function () {
-                setSelected("cart");
-              }}
-            >
-              Cart
-            </button>
-          </div>
-        </Link>
+
+        <div className="flex">
+          <Link to={"./shop"}>
+            <div className={(style && "sober ") + " navEl"}>
+              <button
+                className={
+                  (style && "sober ") + (selected === "shop" && " selected")
+                }
+                id="shop"
+                onClick={function () {
+                  setSelected("shop");
+                }}
+              >
+                Shop
+              </button>
+            </div>
+          </Link>
+
+          <Link to={"./cart"}>
+            <div className={(style && "sober ") + " navEl"}>
+              <button
+                id="cart"
+                className={
+                  (style && "sober ") + (selected === "cart" && " selected")
+                }
+                onClick={function () {
+                  setSelected("cart");
+                }}
+              >
+                Cart
+              </button>
+            </div>
+          </Link>
+        </div>
       </nav>
     </>
   );

@@ -7,6 +7,8 @@ function App() {
   let url = "https://fakestoreapi.com/products/";
   const [isReady, setIsReady] = useState(false);
   const [style, setStyle] = useState(false);
+  const [cartContent, setCartContent] = useState([]);
+  const [total, setTotal] = useState(0);
   let [overlayIsOpen, setOverlayIsOpen] = useState(false);
   let [addFormIsOpen, setAddFormIsOpen] = useState(false);
   let [formValue, setFormValue] = useState(0);
@@ -18,8 +20,33 @@ function App() {
       setData(fetchedData);
     };
     dataFetch();
+
     setIsReady(true);
   }, [url]);
+
+  useEffect(() => {
+    let newCart = [];
+    let count = 0;
+    data.forEach((d) => {
+      d.quantity = 0;
+      d.id = count++;
+      newCart.push(d);
+    });
+    setCartContent(newCart);
+  }, [data]);
+
+  useEffect(() => {
+    const getTotal = () => {
+      let temp = 0;
+      cartContent.map((e) => {
+        if (e.quantity > 0) {
+          temp = temp + e.price * e.quantity;
+        }
+      });
+      setTotal(temp);
+    };
+    getTotal();
+  }, [cartContent]);
 
   let [selectedArticle, setSelectedArticle] = useState({
     title: "",
@@ -43,6 +70,15 @@ function App() {
     setFormValue(0);
     setAddFormIsOpen(false);
   }
+  function addToCart(id, quantity) {
+    let newCart = cartContent.slice();
+    newCart.map((e) => {
+      if (e.id === id) {
+        e.quantity += quantity;
+      }
+    });
+    setCartContent(newCart);
+  }
   function addForm(data) {
     let actualValue = formValue;
 
@@ -59,7 +95,7 @@ function App() {
           <div className="addToCartButtons">
             <button
               onClick={() => {
-                // addToCart(data, formValue);
+                addToCart(data.id, formValue);
                 closeAddForm();
                 closeOverlay();
               }}
@@ -101,7 +137,14 @@ function App() {
     );
   }
 
-  let fullContext = [data, isReady, [style, setStyle], openOverlay];
+  let fullContext = [
+    data,
+    isReady,
+    [style, setStyle],
+    openOverlay,
+    [cartContent, setCartContent],
+    [total, setTotal],
+  ];
   return (
     <>
       <div className="body">
