@@ -19,14 +19,16 @@ export function Card(data, style, openOverlay) {
         {style ? (
           <Tilt>
             <div className="gridTile full">
-              <div className="hitbox" onClick={() => openOverlay(data)}></div>
-              <div className="imageContainer">
-                <div className="price">{data.price}£</div>
-                <img src={data.image} alt="img" />
+              <div className="content small">
+                <div className="hitbox" onClick={() => openOverlay(data)}></div>
+                <div className="imageContainer">
+                  <div className="price">{data.price}£</div>
+                  <img src={data.image} alt="img" />
+                </div>
+                <div className="title">{data.title}</div>
+                <div className="buffer"></div>
+                <div className="description">{data.description}</div>
               </div>
-              <div className="title">{data.title}</div>
-              <div className="buffer"></div>
-              <div className="description">{data.description}</div>
             </div>
           </Tilt>
         ) : (

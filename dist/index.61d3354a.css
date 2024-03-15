@@ -64,7 +64,7 @@ body * {
 .overlayCloser {
   z-index: 0;
   position: fixed;
-  inset: 0;
+  inset: 15% 10%;
 }
 
 .overlayCard {
@@ -77,6 +77,7 @@ body * {
   padding: 20px;
   font-size: 2rem;
   display: flex;
+  position: relative;
   box-shadow: -32px -32px 64px #666, 32px 32px 64px #666;
 }
 
@@ -105,6 +106,44 @@ body * {
   justify-content: space-around;
   width: 100%;
   display: flex;
+}
+
+.addForm {
+  z-index: 5;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+}
+
+.addFormCard {
+  text-align: center;
+  background: linear-gradient(315deg, #bababa, #ddd);
+  border-radius: 24px;
+  padding: 15px;
+  box-shadow: -32px -32px 64px #535353, 32px 32px 64px #fff, inset 0 0 10px 1px #000;
+}
+
+.addAndRemoveButtons {
+  display: flex;
+}
+
+.addAndRemoveButtons input {
+  text-align: center;
+  font-size: 1.2rem;
+  display: flex;
+}
+
+.addToCartButtons {
+  justify-content: space-around;
+  display: flex;
+}
+
+.addToCartButtons button:hover {
+  letter-spacing: 0;
 }
 
 footer {
@@ -393,6 +432,10 @@ main.home {
   scale: 1.3;
 }
 
+.content.small:hover {
+  scale: 1.15;
+}
+
 .content:hover .description {
   color: #fff;
   height: 5rem;
@@ -428,6 +471,18 @@ main.home {
   font-size: .5rem;
   transition: all .2s;
   overflow: hidden;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
 
 @media (width <= 1300px) {

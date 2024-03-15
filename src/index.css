@@ -80,12 +80,13 @@ body *{
 .overlayCloser{
   position: fixed;
   z-index: 0;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: 15%;
+  bottom: 15%;
+  left: 10%;
+  right: 10%;
 }
 .overlayCard{
+  position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -123,6 +124,42 @@ body *{
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+.addForm{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  height: 100%;
+  width: 100%;
+
+}
+.addFormCard{
+  text-align: center;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.061);
+  border-radius: 24px;
+background: linear-gradient(315deg, #bababa, #dddddd);
+box-shadow:  -32px -32px 64px #535353,
+             32px 32px 64px #ffffff,
+             inset 0 0 10px 1px black;
+}
+.addAndRemoveButtons{
+  display: flex;
+}
+.addAndRemoveButtons input{
+  display: flex;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.addToCartButtons{
+  display: flex;
+  justify-content: space-around;
+}
+.addToCartButtons button:hover{
+  letter-spacing: 0;
 }
 footer{
   margin: 0 0 0 0;
@@ -395,6 +432,9 @@ main.home{
   z-index: 1;
   scale: 1.3;
 }
+.content.small:hover{
+  scale: 1.15;
+}
 .content:hover .description{
   height: 5rem;
   font-size: 1rem;
@@ -434,6 +474,17 @@ main.home{
   }
   
   
+
+  input[type="number"] {
+    -webkit-appearance: textfield;
+       -moz-appearance: textfield;
+            appearance: textfield;
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+  }
+
   @media all and (max-width:1300px){
     main{
       grid-template-columns: 1fr 1fr 1fr;
