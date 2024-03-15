@@ -1,8 +1,6 @@
-import { useOutletContext } from "react-router";
 import { Tilt } from "react-tilt";
 
-export function Card(d, style) {
-  console.log(style);
+export function Card(data, style, openOverlay) {
   const defaultOptions = {
     reverse: false, // reverse the tilt direction
     max: 35, // max tilt rotation (degrees)
@@ -14,37 +12,34 @@ export function Card(d, style) {
     reset: true, // If the tilt effect has to be reset on exit.
     easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
   };
-  function addToCart() {
-    alert("the overlay and the cart are yet to be implemented");
-  }
-  console.log(d);
-  if (d.id !== -1) {
+
+  if (data.id !== -1) {
     return (
       <>
         {style ? (
           <Tilt>
             <div className="gridTile full">
-              <div className="content">
-                <div className="imageContainer">
-                  <div className="price">{d.price}£</div>
-                  <img src={d.image} alt="img" />
-                </div>
-                <div class="title">{d.title}</div>
-                <div className="buffer"></div>
-                <div class="description">{d.description}</div>
+              <div className="hitbox" onClick={() => openOverlay(data)}></div>
+              <div className="imageContainer">
+                <div className="price">{data.price}£</div>
+                <img src={data.image} alt="img" />
               </div>
+              <div className="title">{data.title}</div>
+              <div className="buffer"></div>
+              <div className="description">{data.description}</div>
             </div>
           </Tilt>
         ) : (
           <div className="gridTile full">
-            <div className="content" onClick={() => addToCart()}>
-              <div className="price">{d.price}£</div>
+            <div className="content">
+              <div className="hitbox" onClick={() => openOverlay(data)}></div>
+              <div className="price">{data.price}£</div>
               <div className="imageContainer">
-                <img src={d.image} alt="img" />
+                <img src={data.image} alt="img" />
               </div>
-              <div class="title">{d.title}</div>
+              <div className="title">{data.title}</div>
               <div className="buffer"></div>
-              <div class="description">{d.description}</div>
+              <div className="description">{data.description}</div>
             </div>
           </div>
         )}

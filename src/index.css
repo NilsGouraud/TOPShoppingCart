@@ -1,6 +1,6 @@
 /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+v2.0 | 20110126
+License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
@@ -16,35 +16,35 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /*end of css reset*/
@@ -61,8 +61,68 @@ body *{
   display: flex;
   flex-direction: column;
   justify-content:space-between;
- height: 100%;
- width: 100%;
+  height: 100%;
+  width: 100%;
+}
+.overlay{
+  position: fixed;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.291);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.overlayCloser{
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.overlayCard{
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  font-size: 2rem;
+  border-radius: 10px;
+  padding: 20px;
+  border-radius: 24px;
+  background: linear-gradient(315deg, #e6e6e6, #ffffff);
+  box-shadow:  -32px -32px 64px #666666,
+  32px 32px 64px #666666;
+  
+}
+.overlayTitle{
+  font-size: 150%;
+}
+.overlayImage{
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+}
+.overlayImage img{
+  object-fit: cover;
+  height: 20rem;
+}
+.overlayPrice{
+}
+.overlayDescription{
+  font-style: italic;
+  font-size: 100%;
+}
+.overlayButtons{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 footer{
   margin: 0 0 0 0;
@@ -93,7 +153,7 @@ nav{
 nav.sober{
   background-color: black;
   border-bottom: 2px solid #464646;
-
+  
 }
 .navEl{
   display: flex;
@@ -122,7 +182,7 @@ label{
 input:checked + .switch{
   background-color: #ff9a00;
   transform: rotateZ(180deg)
-
+  
 }
 .nileLogo{
   background-image: url("./assets/nileLogo.png");
@@ -252,7 +312,7 @@ main.home{
   background-color: #ff9a00;
 }
 .full{
-z-index: 1;
+  z-index: 1;
 }
 .empty{
   margin-top: 5rem;
@@ -267,15 +327,15 @@ z-index: 1;
   transform: rotateZ(360deg);
   scale: 0.5;
   outline: solid 100px white;
-
+  
 }
 .empty.sober{
-    box-shadow: inset 0 0  10px 10px   rgb(0, 187, 255);
-    background-color: black;
-    outline: solid 0px rgba(255, 255, 255, 0);
-    border: none;
-    
-
+  box-shadow: inset 0 0  10px 10px   rgb(0, 187, 255);
+  background-color: black;
+  outline: solid 0px rgba(255, 255, 255, 0);
+  border: none;
+  
+  
 }
 .empty.sober:hover{
   box-shadow: inset 0 0  10px 5px   #0364e7;
@@ -302,19 +362,28 @@ z-index: 1;
 .content:hover{
   cursor: pointer;
 }
+.hitbox{
+  position: absolute;
+  background-color: none;
+  z-index: 1;
+  top: 0 ;
+  bottom: 0 ;
+  left: 0 ;
+  right: 0 ;
+}
 .imageContainer img {
   max-width: 90%;
   max-height: 90%;
   height: 100%;
   object-fit: contain
   ;
-  }
+}
 
 .imageContainer{
   height: 15rem;
-
-display: flex;
-   justify-content: center;
+  
+  display: flex;
+  justify-content: center;
   align-items: center;
   background-color: white;
   box-sizing: border-box;
@@ -335,43 +404,43 @@ display: flex;
   height: 0px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;}
-
-
-.title{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 4rem;
-  width: 100%;
-
-
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  background-color: white;
-  overflow:hidden;
-}
-
-.description{
-  height: 2rem;
-  width: 100%;
-  transition: 0.2s;
-  background-color: rgb(0, 155, 211);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  color: black;
-  overflow: hidden;
-  font-size: 0.5rem;
-}
-
-
-@media all and (max-width:1300px){
-  main{
-    grid-template-columns: 1fr 1fr 1fr;
+  
+  
+  .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 4rem;
+    width: 100%;
+    
+    
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: white;
+    overflow:hidden;
   }
-}
-@media all and (max-width:800px){
-  main{
-    grid-template-columns: 1fr;
+  
+  .description{
+    height: 2rem;
+    width: 100%;
+    transition: 0.2s;
+    background-color: rgb(0, 155, 211);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: black;
+    overflow: hidden;
+    font-size: 0.5rem;
   }
-}
+  
+  
+  @media all and (max-width:1300px){
+    main{
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  @media all and (max-width:800px){
+    main{
+      grid-template-columns: 1fr;
+    }
+  }

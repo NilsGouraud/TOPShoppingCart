@@ -1,11 +1,8 @@
-import { Outlet, useOutletContext } from "react-router";
 import { Link } from "react-router-dom";
-import nileLogo from "../assets/nileLogo.png";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function NavBar(props) {
   let styleVariables = props[2];
-  console.log(styleVariables);
   let style = styleVariables[0];
   let setStyle = styleVariables[1];
   let [selected, setSelected] = useState("home");

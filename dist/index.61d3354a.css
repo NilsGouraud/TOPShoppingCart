@@ -51,6 +51,62 @@ body * {
   display: flex;
 }
 
+.overlay {
+  z-index: 2;
+  background-color: #0000004a;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+.overlayCloser {
+  z-index: 0;
+  position: fixed;
+  inset: 0;
+}
+
+.overlayCard {
+  z-index: 1;
+  background: linear-gradient(315deg, #e6e6e6, #fff);
+  border-radius: 24px;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  padding: 20px;
+  font-size: 2rem;
+  display: flex;
+  box-shadow: -32px -32px 64px #666, 32px 32px 64px #666;
+}
+
+.overlayTitle {
+  font-size: 150%;
+}
+
+.overlayImage {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.overlayImage img {
+  object-fit: cover;
+  height: 20rem;
+}
+
+.overlayDescription {
+  font-size: 100%;
+  font-style: italic;
+}
+
+.overlayButtons {
+  justify-content: space-around;
+  width: 100%;
+  display: flex;
+}
+
 footer {
   background-color: #fff;
   border-top: 2px solid #dcddde;
@@ -304,6 +360,13 @@ main.home {
 
 .content:hover {
   cursor: pointer;
+}
+
+.hitbox {
+  background-color: none;
+  z-index: 1;
+  position: absolute;
+  inset: 0;
 }
 
 .imageContainer img {
